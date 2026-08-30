@@ -1,0 +1,18 @@
+{
+  "name": "apex-commerce",
+  "version": "1.0.0",
+  "description": "APEX Digital Solutions - Multi-tenant E-commerce SaaS Platform",
+  "private": true,
+  "scripts": {
+    "dev:backend": "cd backend && node --watch src/index.js",
+    "dev:frontend": "cd frontend && npx vite",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build": "cd frontend && npm install && npx vite build",
+    "start": "NODE_ENV=production node backend/src/index.js",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "setup:db": "node backend/src/db/setup.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
