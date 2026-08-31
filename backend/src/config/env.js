@@ -1,10 +1,15 @@
 const path = require('path');
 
-// Load .env from project root
-require('dotenv').config({ path: path.resolve(__dirname, '../../../.env') });
+// Load .env — try multiple locations for compatibility with different hosting setups
+const dotenv = require('dotenv');
+const envFile = path.resolve(__dirname, '../../../.env');
+const result = dotenv.config({ path: envFile });
+if (result.error) {
+  console.warn(`Warning: Could not load .env from ${envFile} — using system environment variables`);
+}
 
 const env = {
-  NODE_ENV: process.env.NODE_ENV || 'development',
+  NODE_ENV: process.env.NODE_ENV || 'production',
   PORT: parseInt(process.env.PORT, 10) || 3000,
 
   SUPABASE_URL: process.env.SUPABASE_URL,
@@ -20,17 +25,17 @@ const env = {
 
   COOKIE_DOMAIN: process.env.COOKIE_DOMAIN || '',
 
-  isProd: process.env.NODE_ENV === 'production',
-  isDev: process.env.NODE_ENV !== 'production'
+  isProd: (process.env.NODE_ENV || 'production') === 'production',
+  isDev: (process.env.NODE_ENV || 'production') !== 'production'
 };
 
 // Validate required vars
 const required = ['SUPABASE_URL', 'SUPABASE_ANON_KEY', 'SUPABASE_SERVICE_ROLE_KEY', 'JWT_SECRET'];
-for (const key of required) {
-  if (!env[key]) {
-    console.error(`Missing required environment variable: ${key}`);
-    process.exit(1);
-  }
+const missing = required.filter(key => !env[key]);
+if (missing.length > 0) {
+  console.error(`FATAL: Missing required environment variables: ${missing.join(', ')}`);
+  console.error('Create a .env file in the project root or set these via hosting environment variables.');
+  process.exit(1);
 }
 
 module.exports = env;
