@@ -34,7 +34,7 @@ export default function Dashboard() {
       <div className="card mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
           <h2 className="font-semibold text-gray-800">{t('dashboard.yourStore')}</h2>
-          <p className="text-sm text-primary-600">{store.slug}.{window.location.hostname.includes('localhost') ? 'apexmr.shop' : window.location.hostname.split('.').slice(-2).join('.')}</p>
+          <p className="text-sm text-primary-600">{store.slug}.{window.location.hostname.includes('localhost') ? 'apexmr.store' : window.location.hostname.split('.').slice(-2).join('.')}</p>
         </div>
         <a href={`/`} target="_blank" rel="noopener noreferrer"
           className="btn-primary flex items-center gap-2 text-sm">

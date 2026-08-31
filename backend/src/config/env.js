@@ -11,9 +11,9 @@ const env = {
   SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY,
   SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
 
-  BASE_DOMAIN: process.env.BASE_DOMAIN || 'apexmr.shop',
-  BASE_STORE_DOMAIN: process.env.BASE_STORE_DOMAIN || 'apexmr.shop',
-  PLATFORM_DOMAIN: process.env.PLATFORM_DOMAIN || 'apexmr.shop',
+  BASE_DOMAIN: process.env.BASE_DOMAIN || 'apexmr.store',
+  BASE_STORE_DOMAIN: process.env.BASE_STORE_DOMAIN || 'apexmr.store',
+  PLATFORM_DOMAIN: process.env.PLATFORM_DOMAIN || 'apexmr.store',
 
   JWT_SECRET: process.env.JWT_SECRET,
   JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '7d',

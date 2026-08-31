@@ -1,0 +1,18 @@
+# APEX Commerce - SPA Fallback
+# Handles client-side routing for React SPA
+
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# If the request is for an existing file, serve it
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Route API requests to Node.js backend
+RewriteRule ^api/(.*)$ http://127.0.0.1:3000/api/$1 [P,L]
+
+# For everything else, serve index.html (React SPA routing)
+RewriteRule ^ index.html [L]

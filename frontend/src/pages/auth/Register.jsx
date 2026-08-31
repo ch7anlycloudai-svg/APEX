@@ -8,7 +8,7 @@ import api from '../../config/api';
 import toast from 'react-hot-toast';
 import { FiCheck, FiX } from 'react-icons/fi';
 
-const BASE_DOMAIN = 'apexmr.shop';
+const BASE_DOMAIN = 'apexmr.store';
 
 export default function Register() {
   const { t } = useTranslation();

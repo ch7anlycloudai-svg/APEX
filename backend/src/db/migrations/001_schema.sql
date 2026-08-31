@@ -1,7 +1,7 @@
 -- ============================================================
 -- APEX Commerce — Database Schema (Migration 1 of 3)
--- Platform: apexmr.shop
--- Store URLs: {slug}.apexmr.shop (wildcard subdomain)
+-- Platform: apexmr.store
+-- Store URLs: {slug}.apexmr.store (wildcard subdomain)
 -- Languages: Arabic (ar) + French (fr)
 -- No custom domains — subdomain only
 -- ============================================================
@@ -26,7 +26,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- ============================================
 -- 1. STORES
--- slug is the subdomain: {slug}.apexmr.shop
+-- slug is the subdomain: {slug}.apexmr.store
 -- ============================================
 CREATE TABLE stores (
   id            UUID PRIMARY KEY DEFAULT uuid_generate_v4(),

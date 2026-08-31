@@ -20,8 +20,8 @@ function setCachedStore(key, store) {
 
 /**
  * Tenant resolution middleware.
- * Resolves store from subdomain: {slug}.apexmr.shop
- * Platform domain (apexmr.shop) skips resolution.
+ * Resolves store from subdomain: {slug}.apexmr.store
+ * Platform domain (apexmr.store) skips resolution.
  */
 async function tenantResolver(req, res, next) {
   try {
@@ -36,7 +36,7 @@ async function tenantResolver(req, res, next) {
       return next();
     }
 
-    // Subdomain resolution: {slug}.apexmr.shop
+    // Subdomain resolution: {slug}.apexmr.store
     if (hostname.endsWith(`.${baseDomain}`)) {
       const slug = hostname.replace(`.${baseDomain}`, '');
 
