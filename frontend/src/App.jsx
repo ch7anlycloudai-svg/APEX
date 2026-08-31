@@ -42,9 +42,10 @@ import Checkout from './pages/storefront/Checkout';
 export default function App() {
   // Determine if this is a platform domain or a store subdomain
   const hostname = window.location.hostname;
+  const platformDomain = import.meta.env.VITE_PLATFORM_DOMAIN || 'apexmr.store';
   const isPlatform = hostname === 'localhost' ||
-    hostname === import.meta.env.VITE_PLATFORM_DOMAIN ||
-    hostname === `www.${import.meta.env.VITE_PLATFORM_DOMAIN}`;
+    hostname === platformDomain ||
+    hostname === `www.${platformDomain}`;
 
   return (
     <BrowserRouter>

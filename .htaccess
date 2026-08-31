@@ -1,17 +1,7 @@
 # APEX Commerce - Hostinger Configuration
-# Routes all requests through the Node.js application
-
-DirectoryIndex disabled
-
-RewriteEngine On
+# Passenger handles Node.js routing automatically
 
 # Force HTTPS
+RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-
-# Do not apply rewrite rules to existing files
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^ - [L]
-
-# Route all requests to the Node.js application
-RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L]

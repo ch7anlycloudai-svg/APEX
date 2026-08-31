@@ -8,7 +8,7 @@
     "dev:frontend": "cd frontend && npx vite",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "build": "cd frontend && npm install && npx vite build",
-    "start": "NODE_ENV=production node backend/src/index.js",
+    "start": "node app.js",
     "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "setup:db": "node backend/src/db/setup.js"
   },
