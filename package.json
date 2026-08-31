@@ -10,8 +10,7 @@
     "build": "cd frontend && npm install && npx vite build",
     "start": "NODE_ENV=production node backend/src/index.js",
     "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "setup:db": "node backend/src/db/setup.js",
-    "postinstall": "cd backend && npm install"
+    "setup:db": "node backend/src/db/setup.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",
